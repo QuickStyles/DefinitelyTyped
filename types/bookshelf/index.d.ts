@@ -20,6 +20,7 @@ interface Bookshelf extends Bookshelf.Events<any> {
 
     plugin(name: string | string[] | Function, options?: any): Bookshelf;
     transaction<T>(callback: (transaction: knex.Transaction) => PromiseLike<T>): BlueBird<T>;
+    model<T>(name:string, model: typeof Bookshelf.Model|{[any:string]: any}, staticProperties: {[any:string]:any}): typeof Bookshelf.Model
 }
 
 declare function Bookshelf(knex: knex): Bookshelf;
